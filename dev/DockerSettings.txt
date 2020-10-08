@@ -1,0 +1,82 @@
+SPring Boot Command Line Instructions
+
+#it will read all property having production in its  file name 
+mvn spring-boot:run -Dspring-boot.run.arguments=--<spring.profile.active>=production
+
+to run Spring boot Application 
+
+mvn spring-boot:run 
+
+
+
+
+
+
+Docker command to push Docker images in AWS
+
+
+docker run 
+-d -> Detach
+-p -> push
+8012: Post number of AWS 
+8012: Port number of COnfigServer
+
+docker run -d -p 8012:8012 abhishekzade/config-server
+
+
+Eureka COntainer to Upload on AWS
+
+Step 1. 
+
+Create a Tag to upload into dockerHUB
+
+To Do the follow below Command 
+
+docker push abhishekzade/az-Zull-APIGateway
+
+to run the Docker Image from the cloud Server
+
+docker run -d -p 8010:8010 -e "spring.cloud.config.property=http://AWS.Server.PrivateIP:8888" abhishekzade/docker-HUB-Eureka-Repository-name
+
+Step-2 
+
+TO Check image  is pulled or not 
+Go to Server Machine and hit below commands
+> docker ps
+> docker logs <NEW Docker Image ID from Cloud>
+
+In this Example PORT 8010 is running showned 
+
+
+Step 3
+To check the image is publicaly available . so that other microservice communicate with Eureka Microservice 
+The PORT 8010 nee to available and todo That 
+
+> Go to the Server : 
+> provide Security  and IP from security group . 
+
+
+##################################33333
+
+To run ELastic Search on docker
+
+
+docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+
+
+docker run -d -v esdata1:/usr/share/elasticsearch/data --name=elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+
+
+##To Run Docker Container with production property file we need to provide -e in docker run command 
+
+docket run -d -e "<spring.profile.active>=production" abhishekzade/az-userMicroservice
+
+
+
+
+
+
+
+
+
+

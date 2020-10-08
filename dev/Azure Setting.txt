@@ -1,0 +1,44 @@
+#####To Configure WebService To deploy on AZURE 
+Step-1
+## Add Dependancies in pom.xml 
+	<plugin>
+		<groupId>com.microsoft.azure</groupId>
+		<artifactId>azure-webapp-maven-plugin</artifactId>
+		<version>1.7.0</version>
+	 </plugin>
+	 
+
+
+## To COnfigure the Port on which the service will run follow below steps 
+## after </plugin> add below setting 
+Step-2
+## The WebService will launch on port 80.
+<configuration>
+					<appSettings>
+						<property>
+							<name>JAVA_OPTS</name>
+							<value>-Dserver.port=80</value>
+						</property>
+					</appSettings>
+</configuration>
+
+
+Step-3
+## Go to command and run below Command for pom.xml configuration 
+>> mvnw azure-webapp:config
+
+
+Step-4
+Download AZURE CLI
+
+Step-5
+Login to AZ from the CLI by following Command 
+>az login
+
+Step-6
+go to the project and run below command 
+>azure-webapp:deploy 
+it will deploy the 
+
+
+
