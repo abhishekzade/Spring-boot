@@ -1,13 +1,13 @@
-package com.example.demo;
+package bank.api.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringDataBaseTestApplication {
+public class BankAppApiUserApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringDataBaseTestApplication.class, args);
+		SpringApplication.run(BankAppApiUserApplication.class, args);
 	}
 
 }
